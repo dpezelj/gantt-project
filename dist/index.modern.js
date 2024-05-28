@@ -407,7 +407,14 @@ var TaskListTableDefault = function TaskListTableDefault(_ref) {
         wordWrap: "break-word",
         whiteSpace: "normal"
       }
-    }, t.name), t.projectManager && React.createElement("div", {
+    }, t.name), t.projectManager === "Undefined" ? React.createElement("a", {
+      href: "/#",
+      style: {
+        fontSize: "12px",
+        color: "rgb(2, 45, 95)",
+        cursor: "pointer"
+      }
+    }, "Assign project manager") : React.createElement("div", {
       style: {
         fontSize: "12px",
         color: "rgb(2, 45, 95)"
