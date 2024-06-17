@@ -371,6 +371,9 @@ var TaskListTableDefault = function TaskListTableDefault(_ref) {
     } else if (t.hideChildren === true) {
       expanderSymbol = React.createElement(ChevronRightIcon, null);
     }
+    var match = t && t.id ? t.id.match(/\d+/) : null;
+    var result = match ? match[0] : null;
+    var projectId = result ? result : 0;
     return React.createElement("div", {
       className: styles$1.taskListTableRow,
       style: {
@@ -408,11 +411,12 @@ var TaskListTableDefault = function TaskListTableDefault(_ref) {
         whiteSpace: "normal"
       }
     }, t.name), t.projectManager === "Undefined" ? React.createElement("a", {
-      href: "/#",
+      href: "/projects/" + projectId + "/personel",
       style: {
         fontSize: "12px",
         color: "rgb(2, 45, 95)",
-        cursor: "pointer"
+        cursor: "pointer",
+        textDecoration: "underline"
       }
     }, "Assign project manager") : React.createElement("div", {
       style: {
